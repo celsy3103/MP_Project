@@ -2,7 +2,7 @@ import cv2
 import numpy as np      
 from matplotlib import pyplot as plt     
 
-img = cv2.imread('/home/akanksha/Desktop/MP/Class Project/Dataset/road_cam_11.jpg', 0)
+img = cv2.imread('road_cam_11.jpg', 0)
 img = cv2.resize(img, (480, 360))
 ### Reshaping the image array into a column vector
 temp = img.reshape(-1, 3)
