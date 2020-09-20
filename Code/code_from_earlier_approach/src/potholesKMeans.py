@@ -26,19 +26,6 @@ centers = np.uint8(centers)
 out = centers[labels.flatten()]
 output = out.reshape(img.shape)
 
-### Gaussian Blur
-blur = cv2.GaussianBlur(output, (3, 3), 0)
-
-### Canny Edge Detection
-seg = cv2.Canny(blur, 50, 50)
-
-### Creating the duplicate copy of the image
-temp = img.copy()
-
-### CONTOUR DETECTION
-im2, contours, hierarchy = cv2.findContours(seg, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
-cv2.drawContours(temp, contours, -1, (255,0,255), 3)
-
 
 fig = plt.figure
 plt.subplot(2,2,1),plt.imshow(img)
@@ -49,13 +36,6 @@ plt.subplot(2,2,2),plt.imshow(output)
 plt.title('K Means Applied')
 plt.xticks([]),plt.yticks([])
 
-plt.subplot(2,2,3),plt.imshow(seg)
-plt.title('Segmented Image')
-plt.xticks([]),plt.yticks([])
-
-plt.subplot(2,2,4),plt.imshow(temp)
-plt.title('Cantours Detected')
-plt.xticks([]),plt.yticks([])
 
 plt.show()
 
